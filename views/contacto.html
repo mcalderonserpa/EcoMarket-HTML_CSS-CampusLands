@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ponte en contacto con EcoMarket. Envíanos tus preguntas, sugerencias o inquietudes sobre nuestros productos ecológicos y sostenibles.">
+  <title>EcoMarket | Contacto y Atención al Cliente</title>
+  <!-- La vinculación de hojas de estilo CSS se realizará tras completar la maquetación semántica -->
+</head>
+<body>
+
+  <!-- Encabezado Principal -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo" aria-label="EcoMarket Inicio">EcoMarket</a>
+
+      <!-- Menú de navegación principal -->
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="productos.html" class="nav-link">Productos</a></li>
+          <li class="nav-item"><a href="sobre-nosotros.html" class="nav-link">Nosotros</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Accesos directos -->
+      <div class="header-actions">
+        <a href="productos.html#buscar" class="action-link" aria-label="Buscar productos">
+          <span aria-hidden="true">🔍</span> Búsqueda
+        </a>
+        <a href="#carrito" class="action-link action-cart" aria-label="Ver carrito de compras">
+          <span aria-hidden="true">🛒</span> Carrito <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="contact-main">
+
+    <!-- Encabezado de la Página -->
+    <section class="contact-hero" aria-labelledby="contact-hero-title">
+      <div class="section-container">
+        <h1 id="contact-hero-title" class="contact-hero-title">Estamos Aquí para Ayudarte</h1>
+        <p class="contact-hero-subtitle">¿Tienes dudas sobre un producto ecológico o tu pedido? Escríbenos y nuestro equipo consciente te responderá en menos de 24 horas.</p>
+      </div>
+    </section>
+
+    <!-- Sección de Contacto: Layout de Dos Columnas (Formulario + Información y Mapa) -->
+    <section class="contact-section" aria-labelledby="form-heading">
+      <div class="section-container">
+        <div class="contact-grid-layout">
+
+          <!-- Columna 1: Formulario Inteligente (Con validación HTML5 para estilos :valid/:invalid) -->
+          <div class="contact-form-column">
+            <header class="form-header">
+              <h2 id="form-heading" class="form-title">Envíanos un Mensaje</h2>
+              <p class="form-subtitle">Completa los campos obligatorios. Todos los datos están protegidos.</p>
+            </header>
+
+            <form class="contact-form" action="#" method="post" novalidate>
+
+              <!-- Campo Nombre -->
+              <div class="form-group">
+                <label for="nombre" class="form-label">
+                  Nombre completo <span class="required-indicator" aria-hidden="true">*</span>
+                </label>
+                <div class="input-container">
+                  <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    class="form-input" 
+                    placeholder="Ej. Laura Martínez" 
+                    required 
+                    minlength="3" 
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{3,50}"
+                    autocomplete="name"
+                  >
+                  <span class="field-feedback valid-msg" aria-live="polite">✓ Nombre válido</span>
+                  <span class="field-feedback invalid-msg" aria-live="polite">✕ Ingresa al menos 3 caracteres alfabéticos</span>
+                </div>
+              </div>
+
+              <!-- Campo Email -->
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  Correo electrónico <span class="required-indicator" aria-hidden="true">*</span>
+                </label>
+                <div class="input-container">
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="ejemplo@correo.com" 
+                    required 
+                    autocomplete="email"
+                  >
+                  <span class="field-feedback valid-msg" aria-live="polite">✓ Formato de email correcto</span>
+                  <span class="field-feedback invalid-msg" aria-live="polite">✕ Ingresa un correo electrónico válido</span>
+                </div>
+              </div>
+
+              <!-- Campo Asunto -->
+              <div class="form-group">
+                <label for="asunto" class="form-label">
+                  Asunto <span class="required-indicator" aria-hidden="true">*</span>
+                </label>
+                <div class="input-container">
+                  <select id="asunto" name="asunto" class="form-select" required>
+                    <option value="" disabled selected>Selecciona un motivo de consulta...</option>
+                    <option value="pedidos">Información sobre envíos y pedidos</option>
+                    <option value="productos">Dudas sobre materiales e ingredientes</option>
+                    <option value="devoluciones">Garantías y devoluciones</option>
+                    <option value="alianzas">Alianzas con productores y artesanos</option>
+                    <option value="otro">Otro tema</option>
+                  </select>
+                  <span class="field-feedback valid-msg" aria-live="polite">✓ Asunto seleccionado</span>
+                  <span class="field-feedback invalid-msg" aria-live="polite">✕ Por favor selecciona una opción</span>
+                </div>
+              </div>
+
+              <!-- Campo Mensaje -->
+              <div class="form-group">
+                <label for="mensaje" class="form-label">
+                  Tu mensaje <span class="required-indicator" aria-hidden="true">*</span>
+                </label>
+                <div class="input-container">
+                  <textarea 
+                    id="mensaje" 
+                    name="mensaje" 
+                    class="form-textarea" 
+                    rows="6" 
+                    placeholder="Cuéntanos en qué podemos apoyarte (mínimo 10 caracteres)..." 
+                    required 
+                    minlength="10"
+                  ></textarea>
+                  <span class="field-feedback valid-msg" aria-live="polite">✓ Mensaje con longitud adecuada</span>
+                  <span class="field-feedback invalid-msg" aria-live="polite">✕ El mensaje debe tener al menos 10 caracteres</span>
+                </div>
+              </div>
+
+              <!-- Checkbox Política de Privacidad -->
+              <div class="form-group-checkbox">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="terminos" id="terminos" required>
+                  <span>Acepto la <a href="#" class="inline-link">política de privacidad</a> y tratamiento de datos personales.</span>
+                </label>
+              </div>
+
+              <!-- Botón Enviar -->
+              <button type="submit" class="btn btn-primary btn-submit">
+                <span>Enviar Mensaje</span>
+              </button>
+
+            </form>
+          </div>
+
+          <!-- Columna 2: Mapa Estático, Información y Redes Sociales -->
+          <div class="contact-info-column">
+
+            <!-- Tarjeta de Canales de Contacto Directo -->
+            <aside class="contact-cards-wrapper">
+              <h2 class="contact-info-title">Canales Directos</h2>
+              
+              <ul class="contact-methods-list">
+                <li class="contact-method-item">
+                  <span class="method-icon" aria-hidden="true">📍</span>
+                  <div class="method-text">
+                    <strong>Punto de Experiencia Físico</strong>
+                    <p>Cra. 27 #34-12, Barrio Bolívar, Bucaramanga, Colombia</p>
+                  </div>
+                </li>
+                <li class="contact-method-item">
+                  <span class="method-icon" aria-hidden="true">📞</span>
+                  <div class="method-text">
+                    <strong>Línea de Atención Telefónica</strong>
+                    <p><a href="tel:+573001234567">+57 (300) 123-4567</a></p>
+                  </div>
+                </li>
+                <li class="contact-method-item">
+                  <span class="method-icon" aria-hidden="true">✉️</span>
+                  <div class="method-text">
+                    <strong>Correo Electrónico Oficial</strong>
+                    <p><a href="mailto:hola@ecomarket.com">hola@ecomarket.com</a></p>
+                  </div>
+                </li>
+                <li class="contact-method-item">
+                  <span class="method-icon" aria-hidden="true">⏰</span>
+                  <div class="method-text">
+                    <strong>Horario de Atención</strong>
+                    <p>Lunes a Viernes: 8:00 a.m. - 6:00 p.m.<br>Sábados: 9:00 a.m. - 2:00 p.m.</p>
+                  </div>
+                </li>
+              </ul>
+            </aside>
+
+            <!-- Mapa de Ubicación: Imagen Estática Estilizada -->
+            <section class="location-map-section" aria-labelledby="map-heading">
+              <h3 id="map-heading" class="map-title">Nuestra Ubicación</h3>
+              <figure class="map-figure">
+                <img 
+                  src="../img/hero/mapa-ubicacion.jpg" 
+                  alt="Mapa estilizado mostrando la ubicación de EcoMarket en Bucaramanga" 
+                  width="500" 
+                  height="300" 
+                  loading="lazy"
+                  class="map-image"
+                >
+                <figcaption class="map-caption">Visítanos en nuestra tienda física para conocer los productos y puntos de reciclaje.</figcaption>
+              </figure>
+            </section>
+
+            <!-- Redes Sociales con Iconos Interactivos -->
+            <section class="social-contact-section" aria-labelledby="social-heading">
+              <h3 id="social-heading" class="social-heading">Comunidad y Redes</h3>
+              <p class="social-intro">Síguenos para consejos sobre sostenibilidad, recetas sin residuos y lanzamientos ecológicos:</p>
+              
+              <ul class="social-icons-list">
+                <li class="social-icon-item">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link link-instagram" aria-label="Síguenos en Instagram">
+                    <span class="social-icon-symbol" aria-hidden="true">📸</span>
+                    <span class="social-icon-name">Instagram</span>
+                  </a>
+                </li>
+                <li class="social-icon-item">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link link-facebook" aria-label="Síguenos en Facebook">
+                    <span class="social-icon-symbol" aria-hidden="true">👥</span>
+                    <span class="social-icon-name">Facebook</span>
+                  </a>
+                </li>
+                <li class="social-icon-item">
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-link link-twitter" aria-label="Síguenos en Twitter / X">
+                    <span class="social-icon-symbol" aria-hidden="true">🐦</span>
+                    <span class="social-icon-name">Twitter</span>
+                  </a>
+                </li>
+                <li class="social-icon-item">
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-link link-youtube" aria-label="Mira nuestros videos en YouTube">
+                    <span class="social-icon-symbol" aria-hidden="true">▶️</span>
+                    <span class="social-icon-name">YouTube</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de Página (Footer) -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Columna 1: Marca -->
+      <div class="footer-col footer-about">
+        <h3 class="footer-logo">EcoMarket</h3>
+        <p>Tu tienda de confianza para un consumo consciente y sustentable. Diseñado para reducir tu huella ecológica día a día.</p>
+      </div>
+
+      <!-- Columna 2: Contacto -->
+      <div class="footer-col footer-contact">
+        <h4 class="footer-heading">Contacto</h4>
+        <address class="contact-info">
+          <p>Email: <a href="mailto:hola@ecomarket.com">hola@ecomarket.com</a></p>
+          <p>Teléfono: <a href="tel:+573001234567">+57 (300) 123-4567</a></p>
+          <p>Dirección: Cra. 27 #34-12, Bucaramanga, Colombia</p>
+        </address>
+      </div>
+
+      <!-- Columna 3: Legales -->
+      <div class="footer-col footer-legal">
+        <h4 class="footer-heading">Legales</h4>
+        <ul class="footer-links">
+          <li><a href="#">Términos y Condiciones</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Envíos y Devoluciones</a></li>
+          <li><a href="#">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Redes Sociales -->
+      <div class="footer-col footer-social">
+        <h4 class="footer-heading">Síguenos</h4>
+        <ul class="social-links">
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">Twitter</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 EcoMarket. Todos los derechos reservados. Diseñado con HTML5 y CSS3 puro.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
