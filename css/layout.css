@@ -1,0 +1,502 @@
+/* ==========================================================================
+   EcoMarket - layout.css
+   Sistemas de Grid, Layouts Flexbox, Header, Footer y Envoltorios
+   Enfoque: Mobile First | Responsividad pura
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDORES Y ESTRUCTURA GENERAL
+   -------------------------------------------------------------------------- */
+.container,
+.section-container,
+.header-container,
+.footer-container,
+.catalog-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.section-container {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--spacing-2xl) auto;
+}
+
+.section-title {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary-darker);
+}
+
+.section-description {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+}
+
+/* --------------------------------------------------------------------------
+   2. ENCABEZADO (HEADER) Y NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+.header {
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.logo::before {
+  content: "🌿";
+  font-size: 1.3rem;
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-md);
+}
+
+.nav-link {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link[aria-current="page"] {
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-main);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-body);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.action-link:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-darker);
+}
+
+.cart-badge {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+/* --------------------------------------------------------------------------
+   3. BANNER HERO (HOME Y SECCIONES)
+   -------------------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-earth-beige) 100%);
+  padding: var(--spacing-3xl) var(--spacing-md);
+  text-align: center;
+  border-bottom: 1px solid var(--color-earth-sand);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary-darker);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.about-hero,
+.contact-hero {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, #f4fbf7 100%);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-hero-title,
+.contact-hero-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-hero-subtitle,
+.contact-hero-subtitle {
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: var(--font-size-md);
+}
+
+/* --------------------------------------------------------------------------
+   4. SISTEMAS DE GRID: PRODUCTOS (MOBILE FIRST)
+   -------------------------------------------------------------------------- */
+/* Grid de 6 productos en Home */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+/* Grid de 20 productos en Catálogo: 1 col (Móvil) -> 2 cols (Tablet) -> 4 cols (Desktop) */
+.products-grid-catalog {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+/* Layout General del Catálogo (Sidebar + Grid) */
+.catalog-main {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.catalog-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.catalog-sidebar {
+  width: 100%;
+}
+
+.catalog-products-section {
+  flex: 1;
+}
+
+/* Barra superior de catálogo */
+.catalog-top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.catalog-results-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.catalog-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* --------------------------------------------------------------------------
+   5. LAYOUT SOBRE NOSOTROS (FLEXBOX Y GRIDS)
+   -------------------------------------------------------------------------- */
+.story-flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.story-figure,
+.story-content {
+  width: 100%;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.testimonials-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+/* --------------------------------------------------------------------------
+   6. LAYOUT CONTACTO (GRID DE 2 COLUMNAS)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.contact-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.contact-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* --------------------------------------------------------------------------
+   7. PIE DE PÁGINA (FOOTER)
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: #1a2e22; /* Verde bosque ultra profundo */
+  color: #e2e8f0;
+  border-top: 4px solid var(--color-primary);
+  margin-top: auto;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.footer-logo {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo::before {
+  content: "🌿 ";
+}
+
+.footer-about p {
+  color: #cbd5e1;
+  font-size: var(--font-size-sm);
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: var(--spacing-xs);
+}
+
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-primary);
+}
+
+.contact-info {
+  font-style: normal;
+  font-size: var(--font-size-sm);
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.contact-info a {
+  color: #cbd5e1;
+}
+
+.contact-info a:hover {
+  color: var(--color-primary);
+}
+
+.footer-links,
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-links a,
+.social-links a {
+  color: #cbd5e1;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-md) var(--spacing-md);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   8. MEDIA QUERIES: TABLET (min-width: 640px / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+  /* Grids a 2 columnas */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-grid-catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catalog-results-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+  }
+
+  .nav {
+    width: auto;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. MEDIA QUERIES: DESKTOP (min-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  /* Grid de Home a 3 columnas */
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Grid de Catálogo: 4 columnas en Desktop (Requerimiento) */
+  .products-grid-catalog {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Catálogo con Sidebar Sticky a la izquierda */
+  .catalog-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .catalog-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+  }
+
+  /* Comportamiento Sticky para el sidebar de filtros */
+  .filters-sticky-wrapper {
+    position: sticky;
+    top: 90px;
+  }
+
+  /* Flexbox Sobre Nosotros: 2 columnas alineadas */
+  .story-flex {
+    flex-direction: row;
+    gap: var(--spacing-3xl);
+  }
+
+  .story-figure,
+  .story-content {
+    flex: 1;
+  }
+
+  /* Principios a 4 columnas */
+  .principles-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Grid de Contacto a 2 columnas (Formulario + Información/Mapa) */
+  .contact-grid-layout {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  /* Footer a 4 columnas */
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
