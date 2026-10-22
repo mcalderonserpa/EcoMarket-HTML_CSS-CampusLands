@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Catálogo completo de EcoMarket - Explora más de 20 productos ecológicos, libres de plástico y sostenibles para tu hogar y bienestar.">
+    <title>EcoMarket | Catálogo de Productos Sostenibles</title>
+
+</head>
+
+<body>
+
+    <!-- Encabezado Principal -->
+    <header class="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo" aria-label="EcoMarket Inicio">EcoMarket</a>
+
+            <!-- Menú de navegación principal -->
+            <nav class="nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="productos.html" class="nav-link" aria-current="page">Productos</a>
+                    </li>
+                    <li class="nav-item"><a href="sobre-nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Accesos directos -->
+            <div class="header-actions">
+                <a href="#buscar" class="action-link" aria-label="Ir a la barra de búsqueda">
+                    <span aria-hidden="true">🔍</span> Búsqueda
+                </a>
+                <a href="#carrito" class="action-link action-cart" aria-label="Ver carrito de compras">
+                    <span aria-hidden="true">🛒</span> Carrito <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal de la Vista Catálogo -->
+    <main class="catalog-main">
+        <div class="catalog-container">
+
+            <!-- Barra Superior: Buscador Visual Estilizado -->
+            <section class="catalog-top-bar" aria-label="Barra de búsqueda y ordenamiento">
+                <form class="search-form" id="buscar" role="search" action="#" method="get">
+                    <label for="search-input" class="visually-hidden">Buscar en el catálogo</label>
+                    <div class="search-input-wrapper">
+                        <span class="search-icon" aria-hidden="true">🔍</span>
+                        <input type="search" id="search-input" name="q" class="search-input"
+                            placeholder="Buscar productos ecológicos (ej. bambú, champú, algodón)..."
+                            autocomplete="off">
+                        <button type="submit" class="btn btn-search">Buscar</button>
+                    </div>
+                </form>
+
+                <div class="catalog-results-info">
+                    <p class="results-count">Mostrando <strong>20</strong> productos conscientes</p>
+                    <div class="catalog-sort">
+                        <label for="sort-select">Ordenar por:</label>
+                        <select id="sort-select" name="sort" class="select-sort">
+                            <option value="featured">Relevancia</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                            <option value="newest">Novedades</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Layout de Dos Columnas: Sidebar Filtros + Grid de Productos -->
+            <div class="catalog-layout">
+
+                <!-- Sidebar de Filtros (Sticky) -->
+                <aside class="catalog-sidebar" aria-labelledby="filters-title">
+                    <div class="filters-sticky-wrapper">
+                        <h2 id="filters-title" class="filters-heading">Filtros</h2>
+
+                        <form class="filters-form" action="#" method="get">
+
+                            <!-- Filtro de Categorías -->
+                            <fieldset class="filter-group">
+                                <legend class="filter-group-title">Categorías</legend>
+                                <ul class="filter-options-list">
+                                    <li>
+                                        <label class="filter-checkbox-label">
+                                            <input type="checkbox" name="categoria" value="hogar">
+                                            <span>Hogar Sustentable</span>
+                                            <span class="filter-count">(5)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="filter-checkbox-label">
+                                            <input type="checkbox" name="categoria" value="moda">
+                                            <span>Moda Ética</span>
+                                            <span class="filter-count">(5)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="filter-checkbox-label">
+                                            <input type="checkbox" name="categoria" value="cuidado-personal">
+                                            <span>Cuidado Personal</span>
+                                            <span class="filter-count">(5)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="filter-checkbox-label">
+                                            <input type="checkbox" name="categoria" value="alimentos">
+                                            <span>Alimentos Bio</span>
+                                            <span class="filter-count">(5)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <!-- Filtro de Rango de Precios -->
+                            <fieldset class="filter-group">
+                                <legend class="filter-group-title">Rango de Precio</legend>
+                                <div class="price-range-wrapper">
+                                    <label for="price-range" class="visually-hidden">Precio máximo</label>
+                                    <input type="range" id="price-range" name="precio_max" min="5000" max="150000"
+                                        step="5000" value="80000">
+                                    <div class="price-range-labels">
+                                        <span>$5.000</span>
+                                        <span>$80.000</span>
+                                        <span>$150.000</span>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Filtro de Disponibilidad -->
+                            <fieldset class="filter-group">
+                                <legend class="filter-group-title">Disponibilidad</legend>
+                                <ul class="filter-options-list">
+                                    <li>
+                                        <label class="filter-radio-label">
+                                            <input type="radio" name="disponibilidad" value="todos" checked>
+                                            <span>Todos</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="filter-radio-label">
+                                            <input type="radio" name="disponibilidad" value="stock">
+                                            <span>En Stock (17)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="filter-radio-label">
+                                            <input type="radio" name="disponibilidad" value="agotado">
+                                            <span>Agotados (3)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <button type="reset" class="btn btn-reset-filters">Limpiar Filtros</button>
+                        </form>
+                    </div>
+                </aside>
+
+                <!-- Sección Principal de Productos -->
+                <section class="catalog-products-section" aria-labelledby="catalog-title">
+                    <h2 id="catalog-title" class="visually-hidden">Listado de Productos</h2>
+
+                    <!-- Grid de 20 Productos -->
+                    <div class="products-grid-catalog">
+
+                        <!-- 1. Hogar -->
+                        <article class="product-card" id="fav-prod-1">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-1" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/cepillo-bambu.jpg"
+                                    alt="Cepillo de dientes de bambú biodegradable" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Hogar</span>
+                                <h3 class="product-name">Cepillo de Dientes de Bambú</h3>
+                                <p class="product-price">$12.000 COP</p>
+                                <a href="#detalle-1" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 2. Hogar -->
+                        <article class="product-card" id="fav-prod-2">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-2" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/pajitas-acero.jpg"
+                                    alt="Set de pitillos de acero inoxidable con cepillo" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Hogar</span>
+                                <h3 class="product-name">Set de Pajitas de Acero</h3>
+                                <p class="product-price">$18.000 COP</p>
+                                <a href="#detalle-2" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 3. Hogar -->
+                        <article class="product-card" id="fav-prod-3">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-3" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/detergente-bio.jpg"
+                                    alt="Detergente ecológico biodegradable para ropa" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Hogar</span>
+                                <h3 class="product-name">Detergente Biodegradable</h3>
+                                <p class="product-price">$32.000 COP</p>
+                                <a href="#detalle-3" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 4. Hogar -->
+                        <article class="product-card" id="fav-prod-4">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge out-of-stock">Agotado</span>
+                                <a href="#fav-prod-4" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/esponja-luffa.jpg" alt="Esponjas vegetales naturales de luffa"
+                                    width="300" height="300" loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Hogar</span>
+                                <h3 class="product-name">Esponjas de Luffa (Pack 3)</h3>
+                                <p class="product-price">$14.500 COP</p>
+                                <button type="button" class="btn btn-disabled" disabled>Agotado</button>
+                            </div>
+                        </article>
+
+                        <!-- 5. Hogar -->
+                        <article class="product-card" id="fav-prod-5">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-5" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/vela-soya.jpg" alt="Vela artesanal aromática de cera de soya"
+                                    width="300" height="300" loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Hogar</span>
+                                <h3 class="product-name">Vela Aromática de Soya</h3>
+                                <p class="product-price">$28.000 COP</p>
+                                <a href="#detalle-5" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 6. Moda -->
+                        <article class="product-card" id="fav-prod-6">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-6" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/bolsa-algodon.jpg"
+                                    alt="Bolsa reutilizable de algodón orgánico" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Moda</span>
+                                <h3 class="product-name">Bolsa Tote de Algodón Bio</h3>
+                                <p class="product-price">$22.000 COP</p>
+                                <a href="#detalle-6" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 7. Moda -->
+                        <article class="product-card" id="fav-prod-7">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-7" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/calcetines-bambu.jpg"
+                                    alt="Calcetines transpirables de fibra de bambú" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Moda</span>
+                                <h3 class="product-name">Calcetines de Bambú</h3>
+                                <p class="product-price">$16.000 COP</p>
+                                <a href="#detalle-7" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 8. Moda -->
+                        <article class="product-card" id="fav-prod-8">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-8" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/mochila-canamo.jpg"
+                                    alt="Mochila urbana sustentable confeccionada en cáñamo" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Moda</span>
+                                <h3 class="product-name">Mochila Urbana de Cáñamo</h3>
+                                <p class="product-price">$120.000 COP</p>
+                                <a href="#detalle-8" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 9. Moda -->
+                        <article class="product-card" id="fav-prod-9">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-9" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/camiseta-reciclada.jpg"
+                                    alt="Camiseta unisex de algodón reciclado" width="300" height="300" loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Moda</span>
+                                <h3 class="product-name">Camiseta de Algodón Reciclado</h3>
+                                <p class="product-price">$45.000 COP</p>
+                                <a href="#detalle-9" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 10. Moda -->
+                        <article class="product-card" id="fav-prod-10">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge out-of-stock">Agotado</span>
+                                <a href="#fav-prod-10" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/gafas-madera.jpg"
+                                    alt="Gafas de sol con montura de madera reciclada" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Moda</span>
+                                <h3 class="product-name">Gafas de Madera Reciclada</h3>
+                                <p class="product-price">$89.000 COP</p>
+                                <button type="button" class="btn btn-disabled" disabled>Agotado</button>
+                            </div>
+                        </article>
+
+                        <!-- 11. Cuidado Personal -->
+                        <article class="product-card" id="fav-prod-11">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-11" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/champu-solido.jpg"
+                                    alt="Champú sólido ecológico de romero y menta" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Cuidado Personal</span>
+                                <h3 class="product-name">Champú Sólido de Romero</h3>
+                                <p class="product-price">$26.000 COP</p>
+                                <a href="#detalle-11" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 12. Cuidado Personal -->
+                        <article class="product-card" id="fav-prod-12">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-12" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/desodorante-natural.jpg"
+                                    alt="Desodorante natural libre de aluminio en barra de cartón" width="300"
+                                    height="300" loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Cuidado Personal</span>
+                                <h3 class="product-name">Desodorante Natural en Barra</h3>
+                                <p class="product-price">$24.000 COP</p>
+                                <a href="#detalle-12" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 13. Cuidado Personal -->
+                        <article class="product-card" id="fav-prod-13">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-13" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/jabon-artesanal.jpg"
+                                    alt="Jabón artesanal hidratante de avena y miel" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Cuidado Personal</span>
+                                <h3 class="product-name">Jabón Artesanal de Avena</h3>
+                                <p class="product-price">$15.000 COP</p>
+                                <a href="#detalle-13" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 14. Cuidado Personal -->
+                        <article class="product-card" id="fav-prod-14">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-14" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/discos-algodon.jpg"
+                                    alt="Discos desmaquillantes reutilizables de algodón" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Cuidado Personal</span>
+                                <h3 class="product-name">Discos Reutilizables (Pack 8)</h3>
+                                <p class="product-price">$20.000 COP</p>
+                                <a href="#detalle-14" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 15. Cuidado Personal -->
+                        <article class="product-card" id="fav-prod-15">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-15" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/crema-facial.jpg"
+                                    alt="Crema facial hidratante orgánica en tarro de vidrio" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Cuidado Personal</span>
+                                <h3 class="product-name">Crema Facial Hidratante Bio</h3>
+                                <p class="product-price">$54.000 COP</p>
+                                <a href="#detalle-15" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 16. Alimentos -->
+                        <article class="product-card" id="fav-prod-16">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-16" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/envoltorios-cera.jpg"
+                                    alt="Envoltorios reutilizables de cera de abejas" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Alimentos</span>
+                                <h3 class="product-name">Envoltorios de Cera de Abeja</h3>
+                                <p class="product-price">$29.000 COP</p>
+                                <a href="#detalle-16" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 17. Alimentos -->
+                        <article class="product-card" id="fav-prod-17">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-17" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/cafe-organico.jpg"
+                                    alt="Café molido orgánico de comercio justo" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Alimentos</span>
+                                <h3 class="product-name">Café Orgánico de Origen (500g)</h3>
+                                <p class="product-price">$36.000 COP</p>
+                                <a href="#detalle-17" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 18. Alimentos -->
+                        <article class="product-card" id="fav-prod-18">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-18" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/te-matcha.jpg"
+                                    alt="Té matcha ceremonial ecológico de cultivo limpio" width="300" height="300"
+                                    loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Alimentos</span>
+                                <h3 class="product-name">Té Matcha Orgánico (100g)</h3>
+                                <p class="product-price">$48.000 COP</p>
+                                <a href="#detalle-18" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                        <!-- 19. Alimentos -->
+                        <article class="product-card" id="fav-prod-19">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge out-of-stock">Agotado</span>
+                                <a href="#fav-prod-19" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/frutos-secos.jpg"
+                                    alt="Frutos secos mixtos sin sal en frasco reutilizable de vidrio" width="300"
+                                    height="300" loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Alimentos</span>
+                                <h3 class="product-name">Mix Frutos Secos en Vidrio</h3>
+                                <p class="product-price">$27.000 COP</p>
+                                <button type="button" class="btn btn-disabled" disabled>Agotado</button>
+                            </div>
+                        </article>
+
+                        <!-- 20. Alimentos -->
+                        <article class="product-card" id="fav-prod-20">
+                            <div class="product-badge-wrapper">
+                                <span class="stock-badge in-stock">En Stock</span>
+                                <a href="#fav-prod-20" class="btn-favorite" aria-label="Añadir a favoritos"
+                                    title="Añadir a favoritos">♥</a>
+                            </div>
+                            <figure class="product-figure">
+                                <img src="../img/products/aceite-oliva.jpg"
+                                    alt="Aceite de oliva extra virgen prensado en frío ecológico" width="300"
+                                    height="300" loading="lazy">
+                            </figure>
+                            <div class="product-body">
+                                <span class="product-category">Alimentos</span>
+                                <h3 class="product-name">Aceite de Oliva Extra Virgen Bio</h3>
+                                <p class="product-price">$58.000 COP</p>
+                                <a href="#detalle-20" class="btn btn-primary btn-add-cart">Añadir al Carrito</a>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Paginación Visual -->
+                    <nav class="pagination" aria-label="Paginación de resultados del catálogo">
+                        <ul class="pagination-list">
+                            <li class="pagination-item"><a href="#" class="pagination-link pagination-prev disabled"
+                                    aria-disabled="true">&laquo; Anterior</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link active"
+                                    aria-current="page">1</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
+                            <li class="pagination-item"><span class="pagination-ellipsis">...</span></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link pagination-next">Siguiente
+                                    &raquo;</a></li>
+                        </ul>
+                    </nav>
+
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- Columna 1: Marca -->
+            <div class="footer-col footer-about">
+                <h3 class="footer-logo">EcoMarket</h3>
+                <p>Tu tienda de confianza para un consumo consciente y sustentable. Diseñado para reducir tu huella
+                    ecológica día a día.</p>
+            </div>
+
+            <!-- Columna 2: Contacto -->
+            <div class="footer-col footer-contact">
+                <h4 class="footer-heading">Contacto</h4>
+                <address class="contact-info">
+                    <p>Email: <a href="mailto:hola@ecomarket.com">hola@ecomarket.com</a></p>
+                    <p>Teléfono: <a href="tel:+573001234567">+57 (300) 123-4567</a></p>
+                    <p>Dirección: Cra. 27 #34-12, Bucaramanga, Colombia</p>
+                </address>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col footer-legal">
+                <h4 class="footer-heading">Legales</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Redes Sociales -->
+            <div class="footer-col footer-social">
+                <h4 class="footer-heading">Síguenos</h4>
+                <ul class="social-links">
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram">Instagram</a></li>
+                    <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter">Twitter</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EcoMarket. Todos los derechos reservados. Diseñado con HTML5 y CSS3 puro.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
