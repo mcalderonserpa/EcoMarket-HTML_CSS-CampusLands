@@ -1,0 +1,266 @@
+/* ==========================================================================
+   EcoMarket - animations.css
+   Keyframes, Transiciones Suaves y Micro-interacciones Puras en CSS3
+   Enfoque: Cero JavaScript | Accesibilidad (Prefers-reduced-motion)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAMES DE ENTRADA Y AMBIENTACIÓN
+   -------------------------------------------------------------------------- */
+/* Entrada suave con elevación para secciones y Hero */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulso sutil para elementos destacados o badges */
+@keyframes pulseSubtle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Brillo suave para botones primarios */
+@keyframes shimmerGlow {
+  0% {
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.25);
+  }
+  50% {
+    box-shadow: 0 6px 18px rgba(46, 204, 113, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.25);
+  }
+}
+
+/* Latido para el botón de favoritos al activarse */
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. APLICACIÓN DE ANIMACIONES EN EL HERO Y SECCIONES
+   -------------------------------------------------------------------------- */
+.hero-content,
+.about-hero .section-container,
+.contact-hero .section-container {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.hero .btn-primary {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both, shimmerGlow 3s infinite 1.2s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   3. EFECTO HOVER SUAVE QUE ELEVA LA TARJETA (REQUERIMIENTO PRINCIPAL)
+   -------------------------------------------------------------------------- */
+/* Requerimiento: "Efecto hover suave que eleve la tarjeta" */
+.product-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 28px -6px rgba(39, 174, 96, 0.18),
+              0 6px 12px -3px rgba(0, 0, 0, 0.06);
+  border-color: rgba(46, 204, 113, 0.4);
+}
+
+/* Zoom suave en la imagen al hacer hover en la tarjeta */
+.product-card:hover .product-figure img {
+  transform: scale(1.06);
+}
+
+/* Efecto al pulsar o activar el favorito */
+.product-card:target .btn-favorite,
+.btn-favorite:active {
+  animation: heartBeat 0.45s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   4. EFECTOS HOVER EN TARJETAS DE PRINCIPIOS ECOLÓGICOS
+   -------------------------------------------------------------------------- */
+.principle-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.35s ease;
+}
+
+.principle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px -4px rgba(39, 174, 96, 0.12);
+  border-color: var(--color-primary);
+}
+
+.principle-card:hover .principle-icon-wrapper {
+  animation: pulseSubtle 1.2s infinite ease-in-out;
+  background-color: var(--color-primary);
+}
+
+.principle-card:hover .principle-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* --------------------------------------------------------------------------
+   5. CARRUSEL CSS Y EFECTOS EN TARJETAS DE TESTIMONIOS
+   -------------------------------------------------------------------------- */
+/* Requerimiento: "Testimonios (Carrusel CSS): Animación: Efecto visual al pasar el mouse sobre las tarjetas" */
+.testimonials-carousel-wrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: var(--spacing-md) var(--spacing-xs) var(--spacing-xl) var(--spacing-xs);
+  margin: 0 -0.5rem;
+}
+
+/* Ocultar barra de scroll antiestética manteniendo el deslizamiento */
+.testimonials-carousel-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.testimonials-carousel-wrapper::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.testimonials-carousel-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-primary-dark);
+  border-radius: var(--radius-full);
+}
+
+.testimonials-track {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.testimonial-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  position: relative;
+  background-color: var(--color-bg-surface);
+}
+
+@media (min-width: 640px) {
+  .testimonial-card {
+    flex: 0 0 340px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-card {
+    flex: 0 0 360px;
+  }
+}
+
+/* Animación visual al pasar el mouse sobre las tarjetas del carrusel */
+.testimonial-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 32px -4px rgba(46, 204, 113, 0.22);
+  border-color: var(--color-primary);
+  z-index: 10;
+}
+
+.testimonial-card:hover .author-avatar img {
+  border-color: var(--color-primary-dark);
+  transform: scale(1.08) rotate(3deg);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-rating {
+  letter-spacing: 4px;
+  transition: letter-spacing 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   6. MICRO-INTERACCIONES EN BOTONES, REDES Y ENLACES
+   -------------------------------------------------------------------------- */
+.social-icon-link {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.social-icon-link:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 204, 113, 0.2);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-dark);
+  transition: width 0.25s ease, left 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* Transición suave para campos de formulario al validar */
+.form-input,
+.form-select,
+.form-textarea {
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   7. ACCESIBILIDAD Y MOVIMIENTO REDUCIDO
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
