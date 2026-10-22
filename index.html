@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="EcoMarket - Tienda en línea dedicada a productos ecológicos, reutilizables y sustentables. Compra responsable, vive sostenible.">
+  <title>EcoMarket | Compra Responsable, Vive Sostenible</title>
+
+
+<body>
+
+  <!-- Encabezado Principal -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="EcoMarket Inicio">EcoMarket</a>
+
+      <!-- Menú de navegación principal -->
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Inicio</a></li>
+          <li class="nav-item"><a href="views/productos.html" class="nav-link">Productos</a></li>
+          <li class="nav-item"><a href="views/sobre-nosotros.html" class="nav-link">Nosotros</a></li>
+          <li class="nav-item"><a href="views/contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Accesos directos: Búsqueda y Carrito -->
+      <div class="header-actions">
+        <a href="views/productos.html#buscar" class="action-link" aria-label="Buscar productos">
+          <span aria-hidden="true">🔍</span> Búsqueda
+        </a>
+        <a href="#carrito" class="action-link action-cart" aria-label="Ver carrito de compras">
+          <span aria-hidden="true">🛒</span> Carrito <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main>
+
+    <!-- Banner Principal (Hero) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title" class="hero-title">Compra responsable, vive sostenible</h1>
+        <p class="hero-subtitle">Descubre productos ecológicos, libres de plástico y elaborados con materias primas
+          renovables para cuidar de ti y del planeta.</p>
+        <a href="views/productos.html" class="btn btn-primary">Explorar productos</a>
+      </div>
+    </section>
+
+    <!-- Sección Productos Destacados (Grid de 6 tarjetas) -->
+    <section class="featured-products" aria-labelledby="featured-title">
+      <div class="section-container">
+        <header class="section-header">
+          <h2 id="featured-title" class="section-title">Productos Destacados</h2>
+          <p class="section-description">Una selección consciente para iniciar tu transición hacia un estilo de vida
+            residuo cero.</p>
+        </header>
+
+        <div class="products-grid">
+          <!-- Producto 1 -->
+          <article class="product-card">
+            <figure class="product-figure">
+              <img src="img/products/cepillo-bambu.jpg" alt="Cepillo dental de bambú biodegradable" width="300"
+                height="300" loading="lazy">
+            </figure>
+            <div class="product-body">
+              <h3 class="product-name">Cepillo de Dientes de Bambú</h3>
+              <p class="product-description">Mango de bambú 100% compostable con cerdas suaves a base de aceite vegetal.
+              </p>
+              <a href="views/productos.html#producto-1" class="btn btn-secondary">Ver más</a>
+            </div>
+          </article>
+
+          <!-- Producto 2 -->
+          <article class="product-card">
+            <figure class="product-figure">
+              <img src="img/products/botella-acero.jpg" alt="Botella térmica de acero inoxidable reutilizable"
+                width="300" height="300" loading="lazy">
+            </figure>
+            <div class="product-body">
+              <h3 class="product-name">Botella Térmica de Acero</h3>
+              <p class="product-description">Capacidad de 750ml, libre de BPA, mantiene bebidas frías 24h y calientes
+                12h.</p>
+              <a href="views/productos.html#producto-2" class="btn btn-secondary">Ver más</a>
+            </div>
+          </article>
+
+          <!-- Producto 3 -->
+          <article class="product-card">
+            <figure class="product-figure">
+              <img src="img/products/bolsa-algodon.jpg" alt="Bolsa de tela de algodón orgánico para compras" width="300"
+                height="300" loading="lazy">
+            </figure>
+            <div class="product-body">
+              <h3 class="product-name">Bolsa Reutilizable de Algodón</h3>
+              <p class="product-description">Tejido resistente de algodón 100% orgánico certificado para tus compras sin
+                bolsas plásticas.</p>
+              <a href="views/productos.html#producto-3" class="btn btn-secondary">Ver más</a>
+            </div>
+          </article>
+
+          <!-- Producto 4 -->
+          <article class="product-card">
+            <figure class="product-figure">
+              <img src="img/products/champu-solido.jpg" alt="Barra de champú sólido natural con ingredientes botánicos"
+                width="300" height="300" loading="lazy">
+            </figure>
+            <div class="product-body">
+              <h3 class="product-name">Champú Sólido Natural</h3>
+              <p class="product-description">Fórmula concentrada con extractos botánicos, libre de sulfatos y empaque
+                sin plástico.</p>
+              <a href="views/productos.html#producto-4" class="btn btn-secondary">Ver más</a>
+            </div>
+          </article>
+
+          <!-- Producto 5 -->
+          <article class="product-card">
+            <figure class="product-figure">
+              <img src="img/products/cubiertos-madera.jpg" alt="Juego portátil de cubiertos de madera reutilizables"
+                width="300" height="300" loading="lazy">
+            </figure>
+            <div class="product-body">
+              <h3 class="product-name">Set de Cubiertos de Bambú</h3>
+              <p class="product-description">Juego portátil con tenedor, cuchara, cuchillo y pitillo dentro de una funda
+                de lino natural.</p>
+              <a href="views/productos.html#producto-5" class="btn btn-secondary">Ver más</a>
+            </div>
+          </article>
+
+          <!-- Producto 6 -->
+          <article class="product-card">
+            <figure class="product-figure">
+              <img src="img/products/envoltorios-cera.jpg"
+                alt="Envoltorios reutilizables de cera de abejas para alimentos" width="300" height="300"
+                loading="lazy">
+            </figure>
+            <div class="product-body">
+              <h3 class="product-name">Envoltorios de Cera de Abeja</h3>
+              <p class="product-description">Pack de 3 láminas reutilizables y lavables para conservar alimentos sin
+                papel film.</p>
+              <a href="views/productos.html#producto-6" class="btn btn-secondary">Ver más</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de Página (Footer) -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- Columna 1: Marca y Propósito -->
+      <div class="footer-col footer-about">
+        <h3 class="footer-logo">EcoMarket</h3>
+        <p>Tu tienda de confianza para un consumo consciente y sustentable. Diseñado para reducir tu huella ecológica
+          día a día.</p>
+      </div>
+
+      <!-- Columna 2: Información de Contacto -->
+      <div class="footer-col footer-contact">
+        <h4 class="footer-heading">Contacto</h4>
+        <address class="contact-info">
+          <p>Email: <a href="mailto:hola@ecomarket.com">hola@ecomarket.com</a></p>
+          <p>Teléfono: <a href="tel:+573001234567">+57 (300) 123-4567</a></p>
+          <p>Dirección: Cra. 27 #34-12, Bucaramanga, Colombia</p>
+        </address>
+      </div>
+
+      <!-- Columna 3: Enlaces Legales -->
+      <div class="footer-col footer-legal">
+        <h4 class="footer-heading">Legales</h4>
+        <ul class="footer-links">
+          <li><a href="#">Términos y Condiciones</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Envíos y Devoluciones</a></li>
+          <li><a href="#">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Redes Sociales -->
+      <div class="footer-col footer-social">
+        <h4 class="footer-heading">Síguenos</h4>
+        <ul class="social-links">
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram">Instagram</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">Twitter</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 EcoMarket. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
