@@ -1,0 +1,858 @@
+/* ==========================================================================
+   EcoMarket - components.css
+   Estilos de Componentes: Botones, Tarjetas, Filtros, Formularios y Paginación
+   Enfoque: Mobile First | Cero JavaScript
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. BOTONES Y ACCIONES (.btn)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.25);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(46, 204, 113, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-darker);
+  border-color: var(--color-primary-subtle);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  border-color: var(--color-primary-dark);
+}
+
+.btn-search {
+  padding: 0.65rem 1.25rem;
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-search:hover {
+  background-color: var(--color-primary);
+}
+
+.btn-disabled {
+  background-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  border: none;
+  opacity: 0.7;
+}
+
+.btn-reset-filters {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background-color: transparent;
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-top: var(--spacing-md);
+  transition: all var(--transition-fast);
+}
+
+.btn-reset-filters:hover {
+  background-color: #fee2e2;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* Botón de Favoritos (CSS :active / :target) */
+.btn-favorite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #a0aec0;
+  font-size: 1.25rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.btn-favorite:hover {
+  color: #e53e3e;
+  transform: scale(1.15);
+  background-color: #ffffff;
+}
+
+/* Activación por :active */
+.btn-favorite:active {
+  color: #e53e3e;
+  background-color: #ffe3e3;
+  transform: scale(0.95);
+}
+
+/* Activación por :target en el producto */
+.product-card:target .btn-favorite {
+  color: #ffffff;
+  background-color: #e53e3e;
+  border-color: #e53e3e;
+}
+
+/* --------------------------------------------------------------------------
+   2. TARJETAS DE PRODUCTO (.product-card)
+   -------------------------------------------------------------------------- */
+.product-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.product-badge-wrapper {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.product-badge-wrapper > * {
+  pointer-events: auto;
+}
+
+.stock-badge {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stock-badge.in-stock {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.stock-badge.out-of-stock {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.product-figure {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.product-body {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-category {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.product-name {
+  font-size: var(--font-size-md);
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.product-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+.product-price {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-darker);
+  margin-bottom: var(--spacing-md);
+}
+
+.btn-add-cart {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. BUSCADOR Y SIDEBAR DE FILTROS STICKY
+   -------------------------------------------------------------------------- */
+.search-form {
+  width: 100%;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-body);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 4px 6px 4px 12px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+  background-color: #ffffff;
+}
+
+.search-icon {
+  margin-right: var(--spacing-xs);
+  opacity: 0.6;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  padding: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+}
+
+.select-sort {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-main);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  outline: none;
+}
+
+.select-sort:focus {
+  border-color: var(--color-primary);
+}
+
+/* Sidebar de Filtros */
+.filters-sticky-wrapper {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.filters-heading {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-darker);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-primary-light);
+}
+
+.filter-group {
+  border: none;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-group-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-sm);
+}
+
+.filter-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.filter-checkbox-label,
+.filter-radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.filter-checkbox-label:hover,
+.filter-radio-label:hover {
+  color: var(--color-primary-darker);
+}
+
+.filter-checkbox-label input,
+.filter-radio-label input {
+  accent-color: var(--color-primary-dark);
+  cursor: pointer;
+}
+
+.filter-count {
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+  color: #94a3b8;
+}
+
+/* Control deslizante de rango */
+.price-range-wrapper {
+  padding-top: var(--spacing-xs);
+}
+
+.price-range-wrapper input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-primary-dark);
+  cursor: pointer;
+}
+
+.price-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+/* --------------------------------------------------------------------------
+   4. PAGINACIÓN VISUAL
+   -------------------------------------------------------------------------- */
+.pagination {
+  margin-top: var(--spacing-3xl);
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-list {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 0.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-main);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+}
+
+.pagination-link:hover:not(.disabled) {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-darker);
+}
+
+.pagination-link.active {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #ffffff;
+  font-weight: var(--font-weight-bold);
+}
+
+.pagination-link.disabled {
+  color: #cbd5e1;
+  background-color: #f8fafc;
+  cursor: not-allowed;
+  border-color: var(--color-border);
+}
+
+.pagination-ellipsis {
+  padding: 0 var(--spacing-xs);
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPONENTES SOBRE NOSOTROS (HISTORIA, PRINCIPIOS, TESTIMONIOS)
+   -------------------------------------------------------------------------- */
+.story-figure {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-bg-surface);
+}
+
+.story-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-caption {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: #f8fafc;
+}
+
+.story-badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-sm);
+}
+
+.story-heading {
+  margin-bottom: var(--spacing-md);
+}
+
+.story-quote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: var(--spacing-md);
+  font-style: italic;
+  color: var(--color-primary-darker);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--spacing-lg);
+}
+
+/* Tarjetas de Principios Ecológicos */
+.principle-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.principle-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.principle-icon {
+  font-size: 1.75rem;
+}
+
+.principle-name {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+.principle-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Tarjetas de Testimonios */
+.testimonial-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.testimonial-rating {
+  color: #f59e0b; /* Dorado ambar para estrellas */
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.testimonial-quote {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+}
+
+.author-avatar img {
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-primary);
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-style: normal;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+}
+
+.author-location {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. FORMULARIO INTELIGENTE CON VALIDACIÓN PURA CSS (:valid / :invalid)
+   -------------------------------------------------------------------------- */
+.contact-form-column {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-title {
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.form-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-main);
+}
+
+.required-indicator {
+  color: var(--color-danger);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  font-size: var(--font-size-sm);
+  outline: none;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+/* Feedback textual (oculto por defecto) */
+.field-feedback {
+  display: none;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-top: 2px;
+}
+
+.valid-msg {
+  color: var(--color-success);
+}
+
+.invalid-msg {
+  color: var(--color-danger);
+}
+
+/* REGLAS DE VALIDACIÓN VISUAL PURA EN CSS (:valid / :invalid)
+   Requerimiento: "Bordes rojos para campos vacíos/inválidos y verdes para correctos"
+   Aplicamos a campos modificados o al enfocar para una experiencia no intrusiva */
+.form-input:focus:invalid,
+.form-select:focus:invalid,
+.form-textarea:focus:invalid,
+.form-input:not(:placeholder-shown):invalid,
+.form-textarea:not(:placeholder-shown):invalid {
+  border-color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+}
+
+.form-input:not(:placeholder-shown):invalid ~ .invalid-msg,
+.form-textarea:not(:placeholder-shown):invalid ~ .invalid-msg {
+  display: block;
+}
+
+.form-input:not(:placeholder-shown):valid,
+.form-select:valid:not([value=""]),
+.form-textarea:not(:placeholder-shown):valid {
+  border-color: var(--color-success);
+  background-color: var(--color-primary-light);
+}
+
+.form-input:not(:placeholder-shown):valid ~ .valid-msg,
+.form-textarea:not(:placeholder-shown):valid ~ .valid-msg {
+  display: block;
+}
+
+.form-group-checkbox {
+  margin-bottom: var(--spacing-xl);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  margin-top: 3px;
+  accent-color: var(--color-primary-dark);
+}
+
+.btn-submit {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   7. CANALES DE CONTACTO, MAPA Y REDES SOCIALES
+   -------------------------------------------------------------------------- */
+.contact-cards-wrapper {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-info-title,
+.map-title,
+.social-heading {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-darker);
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-method-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.method-icon {
+  font-size: 1.5rem;
+  background-color: var(--color-primary-light);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.method-text strong {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  margin-bottom: 2px;
+}
+
+.method-text p {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+/* Mapa Estático Estilizado */
+.location-map-section {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-figure {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: #e2e8f0;
+}
+
+.map-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.map-caption {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: #f8fafc;
+  text-align: center;
+}
+
+/* Redes Sociales y Animación Scale al Hover */
+.social-contact-section {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-intro {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.social-icons-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* Requerimiento: "Redes Sociales: Iconos con animación scale al hacer hover" */
+.social-icon-link:hover,
+.social-icon-link:focus-visible {
+  transform: scale(1.08);
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-darker);
+}
+
+.social-icon-symbol {
+  font-size: 1.25rem;
+}
