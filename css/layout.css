@@ -72,9 +72,42 @@
   gap: var(--spacing-xs);
 }
 
-.logo::before {
-  content: "🌿";
-  font-size: 1.3rem;
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.icon-inline {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.search-icon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-right: var(--spacing-xs);
+}
+
+.method-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.social-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.principle-icon-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
 }
 
 .nav {
@@ -321,10 +354,9 @@
   color: var(--color-primary);
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-sm);
-}
-
-.footer-logo::before {
-  content: "🌿 ";
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
 
 .footer-about p {
