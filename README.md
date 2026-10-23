@@ -3,6 +3,8 @@
  **Plataforma web de comercio electrónico dedicada a productos ecológicos, reutilizables y sustentables.**  
  Diseñada bajo la filosofía de consumo consciente, arquitectura **Mobile First** y desarrollada exclusivamente con **HTML5 Semántico y CSS3 Puro (0% JavaScript, sin frameworks)**.
 
+> 🌐 **Sitio Web Desplegado (Demo en Vivo):** [https://ecomarket-campuslands.vercel.app/](https://ecomarket-campuslands.vercel.app/)
+
 ---
 
 ##  Tabla de Contenidos
@@ -135,3 +137,11 @@ Solo necesitas un navegador web moderno (Google Chrome, Mozilla Firefox, Microso
 | Formulario con Validación CSS (Escritorio) | Canales y Redes (Móvil) |
 |:---:|:---:|
 | ![Contacto Escritorio](capturas/contacto-computador.png) | ![Contacto Celular](capturas/contacto-celular.png) |
+
+---
+
+## 🌐 Guía de Despliegue
+
+La plataforma se encuentra completamente desplegada y disponible públicamente en internet a través de **Vercel**:
+
+🔗 **Enlace de Producción:** [https://ecomarket-campuslands.vercel.app/](https://ecomarket-campuslands.vercel.app/)
