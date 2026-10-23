@@ -105,6 +105,7 @@
 }
 
 /* Efecto al pulsar o activar el favorito */
+.fav-toggle:checked + .btn-favorite,
 .product-card:target .btn-favorite,
 .btn-favorite:active {
   animation: heartBeat 0.45s ease-in-out;

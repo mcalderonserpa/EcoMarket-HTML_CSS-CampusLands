@@ -111,6 +111,7 @@
   cursor: pointer;
   text-decoration: none;
   transition: all var(--transition-fast);
+  user-select: none;
   line-height: 1;
 }
 
@@ -125,6 +126,14 @@
   color: #e53e3e;
   background-color: #ffe3e3;
   transform: scale(0.95);
+}
+
+/* Activación múltiple persistente e independiente mediante checkbox puro CSS (:checked) */
+.fav-toggle:checked + .btn-favorite {
+  color: #ffffff;
+  background-color: #e53e3e;
+  border-color: #e53e3e;
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.35);
 }
 
 /* Activación por :target en el producto */
